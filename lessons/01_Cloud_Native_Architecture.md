@@ -23,6 +23,13 @@ Welcome!
 * [ngrok](https://ngrok.com/) -> secure tunnel between your laptop and desktop.
   * https://stackoverflow.com/questions/42442320/ssh-tunnel-to-ngrok-and-initiate-rdp 
 
+## General Linux
+* Getting started: [Introduction to linux - By the Linux Foundation](https://training.linuxfoundation.org/linux-courses/system-administration-training/introduction-to-linux%20)
+  * Mode advanced trainings from [LinuxCBT in video form](https://www.linuxcbt.com/). They are more pricey but they are very nice resources.
+  * Books ->{be warned not for the faint-hearted ~2300 pages} [UNIX and Linux System Administration Handbook](https://www.amazon.com/UNIX-Linux-System-Administration-Handbook/dp/0131480057)
+* Linux scripting:
+  * [Bash Programing](http://tldp.org/HOWTO/Bash-Prog-Intro-HOWTO.html)
+  * sed, grep, awk [sed & awk book](https://docstore.mik.ua/orelly/unix/sedawk/)
 # Why DevOps
 
 * Started with this prezentation in 2009: [10+ Deploys Per Day: Dev and Ops Cooperation at Flickr](https://youtu.be/LdOe18KhtT4)
