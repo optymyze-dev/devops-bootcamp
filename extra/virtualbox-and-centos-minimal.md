@@ -15,7 +15,7 @@ This document describes the steps required for installing a simple virtual machi
     * [Install VirtualBox](#install-virtualbox)
     * [Creating the CentOS Virtual Machine](#creating-the-centos-virtual-machine)
     * [Additional CentOS VM Configuration](#additional-centos-vm-configuration)
-* [Get Familiar with GNU/Linux Tools](#get-familiar-with-gnu-linux-tools)
+* [Get Familiar with Command Line Tools](#get-familiar-with-command-line-tools)
 
 
 ## Resources
@@ -90,7 +90,7 @@ VirtualBox-5.2-5.2.0_118431_fedora26-1.x86_64.rpm: OK
 $ sha256sum CentOS-7-x86_64-Minimal-1708.iso # compare the output with the hash from the CentOS site
 ```
 
-GNU/Linux - CentOS (works with RedHad EL packages):
+GNU/Linux - CentOS:
 ```bash
 $ cat SHA256SUMS | grep -E 'VBoxGuestAdditions_5.2.0.iso|VirtualBox-5.2-5.2.0_118431_el7-1.x86_64.rpm' | sha256sum -c
 VBoxGuestAdditions_5.2.0.iso: OK
@@ -133,7 +133,7 @@ Windows:
 ## Install
 ### Install VirtualBox
 #### Prerequisites
-For Linux, we need some extra components installed: https://www.virtualbox.org/manual/ch02.html#externalkernelmodules
+For Linux distros, we need some extra components installed: https://www.virtualbox.org/manual/ch02.html#externalkernelmodules
 
 Fedora
 ```bash
@@ -257,25 +257,29 @@ Windows: just run the installer :)
 
 - This IP address will be lost at reboot. Configure the network device to start on boot
     ```bash
-    vim /etc/sysconfig/network-scripts/ifcfg-enp0s3
+    $ vim /etc/sysconfig/network-scripts/ifcfg-enp0s3
     -bash: vim: command not found
     ```
 
-- There's vim (there is vi, but vim has highlighting - even though not for this type of file). Install vim
+- By default vim is not installed (there is vi, but vim has highlighting - even though not for this type of file). Install vim
     ```bash
-    yum install vim # just answer y where asked
+    $ yum install vim # just answer y where asked
     ```
 
 - Configure the network device to start on boot (there are a lot of web pages with info on vim; this is just one: https://www.fprintf.net/vimCheatSheet.html)
     ```bash
-    vim /etc/sysconfig/network-scripts/ifcfg-enp0s3
-
-    # change the following:
-    # disable IPV6 (we really don't need it) by changing any IPV6  yes values to no
+    $ vim /etc/sysconfig/network-scripts/ifcfg-enp0s3 # change the following: disable IPV6 (we really don't need it) by changing any IPV6 yes values to no; start network device on boot
     IPV6...=no
-    #start network device on boot
     ONBOOT=yes
+    
+    
+    $ vim /etc/sysctl.d/disableipv6.conf # put inside the file the following content
+    net.ipv6.conf.all.disable_ipv6 = 1
+    
+    
+    $ reboot
     ```
+
 
 - Working in the VBox window is hard. Open a terminal and try to remote connect to the VM using the SSH protocol
 
@@ -411,7 +415,7 @@ Windows: just run the installer :)
     No package htop available.
     Error: Nothing to do
     
-    # some tools are not part of the CentoOS repo, but they hsould be available in RedHat Enterprise Linux repo (Extra Packages for Enterprise Linux - EPEL)
+    # some tools are not part of the CentoOS repo, but they should be available in RedHat Enterprise Linux repo (Extra Packages for Enterprise Linux - EPEL)
     
     $ sudo yum install epel-release # install EPEL repo
 
@@ -428,7 +432,7 @@ Windows: just run the installer :)
     $ df
     ```
 
-## Get Familiar with GNU/Linux Tools
+## Get Familiar with Command Line Tools
 Now that the VM is installed and configured, the next step is to experiment with different commands that we might use in our day to day work.
 
 This is just small list of commands. Feel free to experiment with other tools you find interesting.
