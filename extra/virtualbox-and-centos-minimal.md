@@ -15,7 +15,7 @@ This document describes the steps required for installing a simple virtual machi
     * [Install VirtualBox](#install-virtualbox)
     * [Creating the CentOS Virtual Machine](#creating-the-centos-virtual-machine)
     * [Additional CentOS VM Configuration](#additional-centos-vm-configuration)
-* [Get Familiar with GNU/Linux Tools](#get-familiar-with-gnu-linux-tools)
+* [Get Familiar with Command Line Tools](#get-familiar-with-command-line-tools)
 
 
 ## Resources
@@ -432,7 +432,7 @@ Windows: just run the installer :)
     $ df
     ```
 
-## Get Familiar with GNU/Linux Tools
+## Get Familiar with Command Line Tools
 Now that the VM is installed and configured, the next step is to experiment with different commands that we might use in our day to day work.
 
 This is just small list of commands. Feel free to experiment with other tools you find interesting.
