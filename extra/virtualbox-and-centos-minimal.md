@@ -7,7 +7,7 @@ This document describes the steps required for installing a simple virtual machi
     * [Software](#software)
 * [Download Resources](#download-resources)
     * [VirtualBox](#virtualbox)
-    * [VirtualBox Guest Addititions](#virtualbox-guest-addititions)
+    * [VirtualBox Guest Additions](#virtualbox-guest-additions)
     * [CentOS - Minimal](#centos-minimal)
 * [Validating Resources](#validating-resources)
     * [Comparing Hashes](#comparing-hashes)
@@ -59,7 +59,7 @@ Download the installer from VirtualBox site: https://www.virtualbox.org/wiki/Dow
 
 You can see that, no matter the OS, all the files are located at a certain release repo address, the latest (at the moment) being: http://download.virtualbox.org/virtualbox/5.2.0/
 
-### VirtualBox Guest Addititions
+### VirtualBox Guest Additions
 GuestAdditions ISO can be found at the repo address release mentioned above: http://download.virtualbox.org/virtualbox/5.2.0/.
 
 Current release link: http://download.virtualbox.org/virtualbox/5.2.0/VBoxGuestAdditions_5.2.0.iso.
