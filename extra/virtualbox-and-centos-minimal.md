@@ -441,16 +441,28 @@ ls
 cd
 mkdir
 touch
+su
+sudo
+systemctl
+man
 cat
 grep
+cut
+tr
 sed
 vim
 less
 tail
 head
+top
 htop
 iotop
 curl
 wget
+lsblk
+df
+du
+dd
 ```
 
+"The tools philosophy was to have small programs to accomplish a particular task instead of trying to develop large monolithic programs to do a large number of tasks. To accomplish more complex tasks, tools would simply be connected together, using pipes." - http://www.tldp.org/LDP/GNU-Linux-Tools-Summary/html/c1089.htm
