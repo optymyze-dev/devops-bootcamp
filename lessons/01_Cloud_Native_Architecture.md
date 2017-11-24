@@ -6,7 +6,7 @@ Welcome!
 
 * Get new people interested in software infrastructure
 * Provide an update on where the industry is heading
-* Try to piece togheter parts of infastructure to solve problems
+* Try to piece together parts of infrastructure to solve problems
 * Hopefully, by the end you will have an idea of what DevOps is, it's role and get interested in infastrucutre development.
 
 ## Organization
@@ -16,7 +16,7 @@ Welcome!
   * We'll try to collaborate using slack.
   * If we get stuck we'll spend the first 15 minutes of each meeting to try and fix them.
 * Courses will cover mostly the theory of how things work, what problem do they solve and the solution space.
-* All information is in github.com
+* All the information is in github.com
 
 ## Tools
 
@@ -32,9 +32,9 @@ Welcome!
   * sed, grep, awk [sed & awk book](https://docstore.mik.ua/orelly/unix/sedawk/)
 # Why DevOps
 
-* Started with this prezentation in 2009: [10+ Deploys Per Day: Dev and Ops Cooperation at Flickr](https://youtu.be/LdOe18KhtT4)
-* A set of patterns and practicies to enable development teams to move faster and deliver more inovation [Systems for Innovation - Adrian Cockcroft, at USI](https://youtu.be/-vlOG3UIp9c)
-* A dayer look for companies, you either inovate, move quickly and stay in the game or someone else will render you irrelevant.
+* Started with this presentation in 2009: [10+ Deploys Per Day: Dev and Ops Cooperation at Flickr](https://youtu.be/LdOe18KhtT4)
+* A set of patterns and practices to enable development teams to move faster and deliver more inovation [Systems for Innovation - Adrian Cockcroft, at USI](https://youtu.be/-vlOG3UIp9c)
+* A dayer look for companies, you either innovate, move quickly and stay in the game or someone else will render you irrelevant.
 * A look at the a traditional company : [The Phoenix Project: A Novel about IT, DevOps, and Helping Your Business Win](https://www.amazon.com/Phoenix-Project-DevOps-Helping-Business/dp/0988262592)
 
 # Cloud Native Architecture
