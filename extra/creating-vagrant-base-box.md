@@ -38,8 +38,10 @@ Once the OS is installed and we can login as the root user, or the vagrant user,
 * Configure the vagrant user:
   * Download the insecure key from https://github.com/mitchellh/vagrant/tree/master/keys
 	``` sh
+	# as the vagrant user run:
+	cd /home/vagrant
 	# install wget
-	yum install wget
+	sudo yum install wget
 	# create ssh directory to user home (/home/vagrant/.ssh)
 	mkdir .ssh
 	# download insecure key and save it to authorized_keys
