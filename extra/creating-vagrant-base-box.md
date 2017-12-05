@@ -32,14 +32,16 @@ Once the OS is installed and we can login as the root user, or the vagrant user,
   * Navigate to the network section and expand the advanced section. Note there that your network configuration should be set to NAT.
   * Click the Port Forwarding Button to open the Port Forwarding rules section.
   * Press the button in the Right with the "+" sign to add a new rule.
-  * Under the "Host Port" section enter port 2002, while under the "Guest Port" section enter port 22. This will forward all traffic from port 2222 on our machine, inside the VM on port 22 (which is the default ssh server port).
-  * Open your terminal emulator software (on windows please make sure you have putty installed https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) and connect to 127.0.0.1 on port 2002.
+  * Under the "Host Port" section enter port 2222, while under the "Guest Port" section enter port 22. This will forward all traffic from port 2222 on our machine, inside the VM on port 22 (which is the default ssh server port).
+  * Open your terminal emulator software (on windows please make sure you have putty installed https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) and connect to 127.0.0.1 on port 2222.
 * Install Virtual Box Guest Additions as per the documentation available [here](https://github.com/optymyze-dev/devops-bootcamp/blob/master/extra/virtualbox-and-centos-minimal.md). 
 * Configure the vagrant user:
   * Download the insecure key from https://github.com/mitchellh/vagrant/tree/master/keys
 	``` sh
+	# as the vagrant user run:
+	cd /home/vagrant
 	# install wget
-	yum install wget
+	sudo yum install wget
 	# create ssh directory to user home (/home/vagrant/.ssh)
 	mkdir .ssh
 	# download insecure key and save it to authorized_keys

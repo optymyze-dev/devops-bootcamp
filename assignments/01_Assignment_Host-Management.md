@@ -353,3 +353,4 @@ modules/
 	stdlib/
 package.box
 ```
+If you run vagrant provision it should apply the modules. At this point you can open your browser, navigate to http://localhost:8080 and you should see the page. 
