@@ -44,7 +44,6 @@
 
 ## Working with puppet
 In this section we will introduce puppet and will configure an apache webserver using puppet to serve a static website.
-
 Out of the box, Vagrant supports provisioning servers with both Puppet Apply and Puppet Agent. Since this is a Masterless Puppet workflow, we're going to be using Puppet Apply.
 
 Vagrant's documentation does an excellent job at describing how to use the Puppet Apply provisioner(https://www.vagrantup.com/docs/provisioning/puppet_apply.html). The only gotcha I found is that Puppet must be installed on the Vagrant-based virtual machine before Puppet Apply can be used. Maybe I just missed that bit in the documentation. 
