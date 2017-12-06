@@ -13,7 +13,7 @@ This document describes the steps required for installing a simple virtual machi
     * [Comparing Hashes](#comparing-hashes)
 * [Install](#install)
     * [Install VirtualBox](#install-virtualbox)
-    * [Creating the CentOS Virtual Machine](#creating-the-centos-virtual-machine)
+    * [Create the CentOS Virtual Machine](#create-the-centos-virtual-machine)
     * [Additional CentOS VM Configuration](#additional-centos-vm-configuration)
 * [Get Familiar with Command Line Tools](#get-familiar-with-command-line-tools)
 
@@ -173,7 +173,7 @@ dpkg -i virtualbox-5.2_5.2.0-118431~Ubuntu~zesty_amd64.deb
 
 Windows: just run the installer :)
 
-### Creating the CentOS Virtual Machine
+### Create the CentOS Virtual Machine
 #### Start Virtual Box
 
 #### Create a Virtual Machine
@@ -220,13 +220,13 @@ Windows: just run the installer :)
 
     - User Creation
 
-       - Full name: `Dev User`
+        - Full name: `Dev User`
 
-       - User name: `dev_user`
+        - User name: `dev_user`
 
-       - check "Make this user administrator" (https://unix.stackexchange.com/questions/8581/which-is-the-safest-way-to-get-root-privileges-sudo-su-or-login#8588)
+        - check "Make this user administrator" (https://unix.stackexchange.com/questions/8581/which-is-the-safest-way-to-get-root-privileges-sudo-su-or-login#8588)
 
-       - Password: (example) `beccainesoarepizza` (https://xkcd.com/936/)
+        - Password: (example) `beccainesoarepizza` (https://xkcd.com/936/)
 
 - Complete > Reboot
 
@@ -297,9 +297,9 @@ Windows: just run the installer :)
 
     - Add rule
 
-       - Host Port: 2222
+        - Host Port: 2222
 
-       - Guest Port: 22
+        - Guest Port: 22
 
 - SSH again:
     ```bash
