@@ -29,7 +29,7 @@ In this document, you will learn how to automate the configuration of specific v
 ### Software
 
 #### VirtualBox, Guest Additions and CentOS Minimal
-In order to work with Vagrant, we will need to have already installed and configured VirtualBox, an image of VirtualBox Guest Additions and also an install image of CentOS (minimal). You can read more about them on this page: https://github.com/optymyze-dev/devops-bootcamp/blob/master/extra/virtualbox-and-centos-minimal.md.
+In order to work with Vagrant, we will need to have already installed and configured VirtualBox, an image of VirtualBox Guest Additions and also an install image of CentOS (minimal). You can read more about them on this page: [virtualbox-and-centos-minimal.md](virtualbox-and-centos-minimal.md).
 
 #### Vagrant
 "Vagrant is a tool for building and managing virtual machine environments in a single workflow. With an easy-to-use workflow and focus on automation, Vagrant lowers development environment setup time, increases production parity, and makes the "works on my machine" excuse a relic of the past." - https://www.vagrantup.com/intro/index.html
@@ -113,7 +113,7 @@ Windows: just run the installer :)
 Before continue, please skim through the documentation found on [Vagrant Docs site](https://www.vagrantup.com/docs/index.html). Have a fast look through these links:
 * [Getting Started](https://www.vagrantup.com/intro/getting-started/index.html)
 * [Boxes](https://www.vagrantup.com/docs/boxes.html) and [Creating a Base Box](https://www.vagrantup.com/docs/boxes/base.html)
-* [Providers](https://www.vagrantup.com/docs/providers/), [VirtalBox](https://www.vagrantup.com/docs/virtualbox/) and [Creating a Base Box with VirtualBox](https://www.vagrantup.com/docs/virtualbox/boxes.html)
+* [Providers](https://www.vagrantup.com/docs/providers/), [VirtualBox](https://www.vagrantup.com/docs/virtualbox/) and [Creating a Base Box with VirtualBox](https://www.vagrantup.com/docs/virtualbox/boxes.html)
 * [Vagrantfile](https://www.vagrantup.com/docs/vagrantfile/)
 
 Next, we'll be using all the info we found in the Vagrant Docs to make a base image called a "base box" and use it to create a custom VM.
@@ -257,19 +257,18 @@ Based on that documentation, please install the Base CentOS VM, with the followi
 Now that we have our VM all prepped, we are ready to create a Vagrant box.
 
 - On your host machine (your dekstop OS), create a directory where you want your Vagrant files for this box to be saved.
-    GNU/Linux example:
     ```bash
+    # GNU/Linux example:
     $ mkdir -p ~/Vagrant/CentOSBaseBox
     ```
 
 - Open a console (if you are not in one yet) and go to that directory
-    GNU/Linux example:
     ```bash
+    # GNU/Linux example:
     $ cd ~/Vagrant/CentOSBaseBox
     ```
 
 - Create the box. This can take a while
-    GNU/Linux example:
     ```bash
     # vagrant package --base <vm_name>
     $ vagrant package --base centos-base
@@ -279,7 +278,6 @@ Now that we have our VM all prepped, we are ready to create a Vagrant box.
     ```
 
 - Register your Vagrant box with Vagrant
-    GNU/Linux example:
     ```bash
     # vagrant box add <registered_name_for_vagrant_box> <path_to_box>
     # run 'vagrant box add --help' to see more options
@@ -291,7 +289,6 @@ Now that we have our VM all prepped, we are ready to create a Vagrant box.
     ```
 
 - Check for the registered box
-    GNU/Linux example:
     ```bash
     $ vagrant box list
     centos-base-box (virtualbox, 0)
@@ -301,19 +298,18 @@ Now that we have our VM all prepped, we are ready to create a Vagrant box.
 If a Vagrant box can be seen as a class from a programming language, the VM created using a box is the instance of that class.
 
 - On your host machine (your dekstop OS), create a directory where you want your Vagrant files for this VM to be saved.
-    GNU/Linux example:
     ```bash
+    # GNU/Linux example:
     $ mkdir -p ~/Vagrant/VMs/CentOSVM1
     ```
 
 - Open a console (if you are not in one yet) and go to that directory
-    GNU/Linux example:
     ```bash
+    # GNU/Linux example:
     $ cd ~/Vagrant/VMs/CentOSVM1
     ```
 
 - Create the Vagrant files for the VM
-    GNU/Linux example:
     ```bash
     $ vagrant init centos-base-box
     A `Vagrantfile` has been placed in this directory. You are now
@@ -323,7 +319,6 @@ If a Vagrant box can be seen as a class from a programming language, the VM crea
     ```
 
 - Create the VM using the generated Vagrantfile
-    GNU/Linux example:
     ```bash
     $ vagrant up
     Bringing machine 'default' up with 'virtualbox' provider...
