@@ -134,7 +134,7 @@ Based on that documentation, please install the Base CentOS VM, with the followi
 - Create a Virtual Disk Now
 - VDI
 - **Dynamically allocated**
-- 30 GiB
+- **30 GiB**
 
 #### Install CentOS
 
