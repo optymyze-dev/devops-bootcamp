@@ -24,7 +24,7 @@ In this document, you will learn how to automate the configuration of specific v
 ## Resources
 
 ### Hardware
-2 GiB RAM and 60 GiB disk space should be more than enough.
+1 GiB RAM and 30 GiB disk space should be more than enough to do everything described in this document.
 
 ### Software
 
