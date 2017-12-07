@@ -2,7 +2,7 @@
 
 ## Creating your setup.
 
-* Create a vagrant file using vagrant init and your image (you can use the image created using this tutorial: https://github.com/optymyze-dev/devops-bootcamp/blob/master/extra/creating-vagrant-base-box.md).
+* Create a vagrant file using vagrant init and your image (you can use the image created using this tutorial: [creating-virtual-machines-using-vagrant.md](../extra/creating-virtual-machines-using-vagrant.md)).
   * Initialize the image using an existing box 
 	```sh
 	vagrant init centos-clean
