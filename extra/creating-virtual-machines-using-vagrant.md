@@ -1,5 +1,5 @@
 # Creating Virtual Machines Using Vagrant
-In this document, you will learn how to automate the configuration of specific virtual machines based on a base image, using Vagrant.
+In this document, you will learn how to automate the creation of virtual machines based on a base image, using Vagrant.
 
 ## Table of Contents
 * [Resources](#resources)
