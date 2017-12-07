@@ -238,14 +238,14 @@ Based on that documentation, please install the Base CentOS VM, with the followi
 	$ cd /home/vagrant
 
 	# create ssh directory to user home (/home/vagrant/.ssh)
-	mkdir .ssh
+	$ mkdir .ssh
 
 	# download insecure key and save it to authorized_keys
-	wget https://raw.githubusercontent.com/hashicorp/vagrant/master/keys/vagrant.pub -O .ssh/authorized_keys
+	$ wget https://raw.githubusercontent.com/hashicorp/vagrant/master/keys/vagrant.pub -O .ssh/authorized_keys
 	
     # Set the right permissions
-	chmod 0700 .ssh
-	chmod 0600 .ssh/authorized_keys
+	$ chmod 0700 .ssh
+	$ chmod 0600 .ssh/authorized_keys
 	```
 
 - **ShutDown the VM**
