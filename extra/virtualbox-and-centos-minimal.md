@@ -385,6 +385,7 @@ Windows: just run the installer :)
     $ sudo sh /media/cdrom/VBoxLinuxAdditions.run
     ...
     VirtualBox Guest Additions: Starting.
+    $ sudo umount /media/cdrom
     ```
 
 - Check and install commands
