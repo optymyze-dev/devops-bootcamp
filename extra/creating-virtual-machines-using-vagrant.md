@@ -235,7 +235,7 @@ Based on that documentation, please install the Base CentOS VM, with the followi
 - **"vagrant" User Key Authentication Setup**
     ```bash
     # by default, if we didn't changed directory, we should be in vagrant's home, but, to be sure...
-	$ cd /home/oracle
+	$ cd /home/vagrant
 
 	# create ssh directory to user home (/home/vagrant/.ssh)
 	mkdir .ssh
