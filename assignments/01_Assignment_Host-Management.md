@@ -5,13 +5,13 @@
 * Create a vagrant file using vagrant init and your image (you can use the image created using this tutorial: [creating-virtual-machines-using-vagrant.md](../extra/creating-virtual-machines-using-vagrant.md)).
   * Initialize the image using an existing box 
 	```sh
-	vagrant init centos-clean
+	vagrant init centos-base-box
 	```
   * Run vagrant up in a directory. This directory will be your work space so chose it wisely.
   ```sh
   [user@localhost ~]$	vagrant up
   Bringing machine 'default' up with 'virtualbox' provider...
-  ==> default: Importing base box 'centos-clean'...
+  ==> default: Importing base box 'centos-base-box'...
   ==> default: Matching MAC address for NAT networking...
   ==> default: Setting the name of the VM: puppet_default_1511873672602_57381
   ==> default: Clearing any previously set network interfaces...
@@ -148,7 +148,7 @@ Vagrant.configure("2") do |config|
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://atlas.hashicorp.com/search.
-  config.vm.box = "centos-clean"
+  config.vm.box = "centos-base-box"
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
@@ -209,16 +209,20 @@ end
 
 The first thing we will do is remove the comments and add the following configuration block:
 ```ruby
- config.vm.define "my.example.com"
- # we use the shell provisioner to make sure we have an uptodate system and that puppet is installed
+  config.vm.define "my.example.com"
+  # we use the shell provisioner to make sure we have an uptodate system and that puppet is installed
   config.vm.provision "shell", :inline => <<-SHELL
     yum update
-    yum install -y puppet
+    yum install -y "https://yum.puppet.com/puppet5/puppet5-release-el-7.noarch.rpm"
+    sudo firewall-cmd --zone=public --add-service=http --permanent
+    sudo firewall-cmd --reload
   SHELL
- # we define a puppet provisioner which will load from the current directory the modules directory (which also contains our modules) and use the hiera.yaml file to decide what to apply.
+  # we define a puppet provisioner which will load from the current directory the modules directory (which also contains our modules) and use the hiera.yaml file to decide what to apply.
   config.vm.provision "puppet" do |puppet|
     puppet.hiera_config_path = "hiera.yaml"
     puppet.module_path = "modules"
+    puppet.environment_path = "environments"
+    puppet.environment = "test"
 ```
 The resulting Vagrant file will look like this:
 
@@ -227,22 +231,27 @@ The resulting Vagrant file will look like this:
 # vi: set ft=ruby :
 
 Vagrant.configure("2") do |config|
-  config.vm.box = "centos-clean"
+  config.vm.box = "centos-base-box"
   config.vm.network "forwarded_port", guest: 80, host: 8080
   config.vm.define "my.example.com"
   # we use the shell provisioner to make sure we have an uptodate system and that puppet is installed
   config.vm.provision "shell", :inline => <<-SHELL
     yum update
-    yum install -y puppet
+    yum install -y "https://yum.puppet.com/puppet5/puppet5-release-el-7.noarch.rpm"
+    sudo firewall-cmd --zone=public --add-service=http --permanent
+    sudo firewall-cmd --reload
   SHELL
   # we define a puppet provisioner which will load from the current directory the modules directory (which also contains our modules) and use the hiera.yaml file to decide what to apply.
   config.vm.provision "puppet" do |puppet|
     puppet.hiera_config_path = "hiera.yaml"
     puppet.module_path = "modules"
+    puppet.environment_path = "environments"
+    puppet.environment = "test"
   end 
 
 end
 ```
+
 ## Configuring Hiera
 The Vagrantfile defines a Hiera configuration called hiera.yaml located in the same directory as the Vagrantfile.
 Here's the contents of hiera.yaml:
