@@ -6,14 +6,14 @@ This document describes the steps required for installing a simple virtual machi
     * [Hardware](#hardware)
     * [Software](#software)
 * [Download Resources](#download-resources)
-    * [VirtualBox](#virtualbox)
-    * [VirtualBox Guest Additions](#virtualbox-guest-additions)
-    * [CentOS - Minimal](#centos-minimal)
+    * [VirtualBox](#virtualbox-1)
+    * [VirtualBox Guest Additions](#virtualbox-guest-additions-1)
+    * [CentOS - Minimal](#centos-minimal-1)
 * [Validating Resources](#validating-resources)
     * [Comparing Hashes](#comparing-hashes)
 * [Install](#install)
     * [Install VirtualBox](#install-virtualbox)
-    * [Creating the CentOS Virtual Machine](#creating-the-centos-virtual-machine)
+    * [Create the CentOS Virtual Machine](#create-the-centos-virtual-machine)
     * [Additional CentOS VM Configuration](#additional-centos-vm-configuration)
 * [Get Familiar with Command Line Tools](#get-familiar-with-command-line-tools)
 
@@ -39,10 +39,10 @@ Website: https://www.virtualbox.org/
 
 Manual: https://www.virtualbox.org/manual/
 
-### VirtualBox Guest Additions
+#### VirtualBox Guest Additions
 "Guest Additions are designed to be installed inside a virtual machine after the guest operating system has been installed. They consist of device drivers and system applications that optimize the guest operating system for better performance and usability." - https://www.virtualbox.org/manual/ch04.html
 
-### CentOS (minimal)
+#### CentOS Minimal
 "CentOS Linux is a community-supported distribution derived from sources freely provided to the public by Red Hat for Red Hat Enterprise Linux (RHEL). As such, CentOS Linux aims to be functionally compatible with RHEL. The CentOS Project mainly changes packages to remove upstream vendor branding and artwork. CentOS Linux is no-cost and free to redistribute. Each CentOS version is maintained for up to 10 years (by means of security updates -- the duration of the support interval by Red Hat has varied over time with respect to Sources released). A new CentOS version is released approximately every 2 years and each CentOS version is periodically updated (roughly every 6 months) to support newer hardware. This results in a secure, low-maintenance, reliable, predictable and reproducible Linux environment." - https://wiki.centos.org/
 
 Website: https://www.centos.org/
@@ -55,7 +55,7 @@ Download the installer from VirtualBox site: https://www.virtualbox.org/wiki/Dow
  > Note on Packages for GNU/Linux distros
  > - there's no RPM for Fedora 27 yet, you can use the Fedora 26 package
  > - CentOS works with RedHat EL packages
- > - there's no deb for Ubuntu 17.10 Artful Aardvark, but it should work with the package for Ubuntu 17.04 Zesty Zapus 
+ > - there's no deb for Ubuntu 17.10 Artful Aardvark, but it should work with the package for Ubuntu 17.04 Zesty Zapus
 
 You can see that, no matter the OS, all the files are located at a certain release repo address, the latest (at the moment) being: http://download.virtualbox.org/virtualbox/5.2.0/
 
@@ -64,7 +64,7 @@ GuestAdditions ISO can be found at the repo address release mentioned above: htt
 
 Current release link: http://download.virtualbox.org/virtualbox/5.2.0/VBoxGuestAdditions_5.2.0.iso.
 
-### CentOS - Minimal
+### CentOS Minimal
 From https://www.centos.org/download/, pick the Minimal ISO.
 
 Current link: http://isoredirect.centos.org/centos/7/isos/x86_64/CentOS-7-x86_64-Minimal-1708.iso
@@ -173,7 +173,7 @@ dpkg -i virtualbox-5.2_5.2.0-118431~Ubuntu~zesty_amd64.deb
 
 Windows: just run the installer :)
 
-### Creating the CentOS Virtual Machine
+### Create the CentOS Virtual Machine
 #### Start Virtual Box
 
 #### Create a Virtual Machine
@@ -220,13 +220,13 @@ Windows: just run the installer :)
 
     - User Creation
 
-       - Full name: `Dev User`
+        - Full name: `Dev User`
 
-       - User name: `dev_user`
+        - User name: `dev_user`
 
-       - check "Make this user administrator" (https://unix.stackexchange.com/questions/8581/which-is-the-safest-way-to-get-root-privileges-sudo-su-or-login#8588)
+        - check "Make this user administrator" (https://unix.stackexchange.com/questions/8581/which-is-the-safest-way-to-get-root-privileges-sudo-su-or-login#8588)
 
-       - Password: (example) `beccainesoarepizza` (https://xkcd.com/936/)
+        - Password: (example) `beccainesoarepizza` (https://xkcd.com/936/)
 
 - Complete > Reboot
 
@@ -297,9 +297,9 @@ Windows: just run the installer :)
 
     - Add rule
 
-       - Host Port: 2222
+        - Host Port: 2222
 
-       - Guest Port: 22
+        - Guest Port: 22
 
 - SSH again:
     ```bash
@@ -385,6 +385,7 @@ Windows: just run the installer :)
     $ sudo sh /media/cdrom/VBoxLinuxAdditions.run
     ...
     VirtualBox Guest Additions: Starting.
+    $ sudo umount /media/cdrom
     ```
 
 - Check and install commands
