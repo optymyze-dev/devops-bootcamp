@@ -214,6 +214,7 @@ The first thing we will do is remove the comments and add the following configur
   config.vm.provision "shell", :inline => <<-SHELL
     yum update
     yum install -y "https://yum.puppet.com/puppet5/puppet5-release-el-7.noarch.rpm"
+    yum install -y puppet-agent
     sudo firewall-cmd --zone=public --add-service=http --permanent
     sudo firewall-cmd --reload
   SHELL
@@ -238,6 +239,7 @@ Vagrant.configure("2") do |config|
   config.vm.provision "shell", :inline => <<-SHELL
     yum update
     yum install -y "https://yum.puppet.com/puppet5/puppet5-release-el-7.noarch.rpm"
+    yum install -y puppet-agent
     sudo firewall-cmd --zone=public --add-service=http --permanent
     sudo firewall-cmd --reload
   SHELL
