@@ -199,7 +199,7 @@ Based on that documentation, please install the Base CentOS VM, with the followi
     $ reboot
     ```
 
-- **Connect through SSH from the host machine (your dekstop OS)**
+- **Connect through SSH from the host machine (your desktop OS)**
     ```bash
     $ ssh vagrant@localhost -p2222
     ```
