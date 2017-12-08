@@ -297,7 +297,7 @@ Now that we have our VM all prepped, we are ready to create a Vagrant box.
 ## Create a Virtual Machine from the CentOS Base Box 
 If a Vagrant box can be seen as a class from a programming language, the VM created using a box is the instance of that class.
 
-- On your host machine (your dekstop OS), create a directory where you want your Vagrant files for this VM to be saved.
+- On your host machine (your desktop OS), create a directory where you want your Vagrant files for this VM to be saved.
     ```bash
     # GNU/Linux example:
     $ mkdir -p ~/Vagrant/VMs/CentOSVM1
