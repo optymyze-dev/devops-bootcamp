@@ -2,7 +2,7 @@
 
 ## Creating your setup.
 
-* Create a vagrant file using vagrant init and your image (you can use the image created using this tutorial: [creating-virtual-machines-using-vagrant.md](../extra/creating-virtual-machines-using-vagrant.md)).
+* Create a vagrant file using `vagrant init` and your image (you can use the image created using this tutorial: [creating-virtual-machines-using-vagrant.md](../extra/creating-virtual-machines-using-vagrant.md)).
   * Initialize the image using an existing box 
 	```sh
 	vagrant init centos-base-box
@@ -48,7 +48,7 @@ Out of the box, Vagrant supports provisioning servers with both Puppet Apply and
 
 Vagrant's documentation does an excellent job at describing how to use the Puppet Apply provisioner(https://www.vagrantup.com/docs/provisioning/puppet_apply.html). The only gotcha I found is that Puppet must be installed on the Vagrant-based virtual machine before Puppet Apply can be used. Maybe I just missed that bit in the documentation. 
 
-Puppet is a very complex topic and we won't cover all the details. We're just going to give you some concepts so that you can get started. More details about puppet are available at their[website](https://puppet.com/docs/puppet/5.3/bgtm.html) allong with a more indepth documentation. Probably the best way to get started is using a book (https://www.amazon.com/Puppet-4-10-Beginners-Guide-newbie/dp/1787124002 is a great refrence to get started) or [getting started guides](https://puppet.com/docs/puppet/5.3/quick_start_essential_config.html).
+Puppet is a very complex topic and we won't cover all the details. We're just going to give you some concepts so that you can get started. More details about puppet are available at their [website](https://puppet.com/docs/puppet/5.3/bgtm.html) allong with a more indepth documentation. Probably the best way to get started is using a book (https://www.amazon.com/Puppet-4-10-Beginners-Guide-newbie/dp/1787124002 is a great refrence to get started) or [getting started guides](https://puppet.com/docs/puppet/5.3/quick_start_essential_config.html).
 
 Before we get started we should introduce a couple of concepts:
 
@@ -130,7 +130,7 @@ In this section we will use the vagrant support to run puppet code to configure 
 
 ## Updating the Vagrant File
 
-When we run the command ~vagrant init~, Vagrant automatically placed a "Vagrantfile" in the directory where this was run. This file already contains a scheleton with the major section so we will be edding it to configure the puppet integration.
+When we run the command `vagrant init`, Vagrant automatically placed a "Vagrantfile" in the directory where this was run. This file already contains a scheleton with the major section so we will be edding it to configure the puppet integration.
 
 The created Vagrantfile looks like this:
 ```ruby
@@ -315,6 +315,7 @@ remote: Compressing objects: 100% (12/12), done.
 remote: Total 3102 (delta 4), reused 9 (delta 2), pack-reused 3088
 Receiving objects: 100% (3102/3102), 690.58 KiB | 823.00 KiB/s, done.
 Resolving deltas: 100% (1527/1527), done.
+ [user@localhost ~]$ cd ..
 ```
 At this point we have cloned from github the apache, sdtlib and concat modules and placed them in our modules directory.
 
