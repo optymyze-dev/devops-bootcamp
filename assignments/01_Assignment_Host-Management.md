@@ -345,7 +345,7 @@ file { '/var/www/html/index.html':
 The first line installs and configures apache using the default settings from the puppetlabs/apache module except for the serveradmin setting which was defined in Hiera as joe@example.com.
 The second line prints a message stored in Hiera just as another way to show that data is successfully being pulled from Hiera.
 
-We also have a file resouce defined, and puppet will create a file under "/var/www/html/index.html" with the content "Test Page" and grant ownership to puppet.
+We also have a file resouce defined, and Puppet will create a file under "/var/www/html/index.html" with the content "Test Page" and grant ownership to apache.
 
 With everything in place, the directory structure should look like this:
 
