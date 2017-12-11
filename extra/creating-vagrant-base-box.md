@@ -1,5 +1,7 @@
 # Creating a vagrant base box
 
+**If you've just started learning about Vagrant, please refer to the new document [creating-virtual-machines-using-vagrant.md](../extra/creating-virtual-machines-using-vagrant.md)**
+
 ## Using Vagrant
 Vagrant is a tool for building and managing virtual machine environments in a single workflow. With an easy-to-use workflow and focus on automation, Vagrant lowers development environment setup time, increases production parity, and makes the "works on my machine" excuse a relic of the past.
 
