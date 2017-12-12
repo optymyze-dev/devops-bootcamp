@@ -25,7 +25,11 @@ Website: https://about.gitlab.com/
 GitLab can be installed on-premise or can be used as a service (similar to GitHub) at https://gitlab.com/users/sign_in.
 
 ### Vagrant Setup
-Edit `Vagrantfile`:
+Create a new VM dir: `centos-gitlab`
+
+Inside it...
+
+Create a `Vagrantfile`:
 ```bash
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
@@ -82,6 +86,9 @@ curl -L https://packages.gitlab.com/install/repositories/runner/gitlab-runner/sc
 # install gitlab-runner
 yum install -y gitlab-runner
 ```
+
+Run `vagrant up`.
+
 
 ### Add the VM in Hosts
 
