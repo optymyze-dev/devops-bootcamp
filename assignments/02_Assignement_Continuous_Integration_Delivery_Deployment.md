@@ -1,5 +1,4 @@
 # Continuous Integration, Continuous Delivery and Continuous Deployment
-For having a nice experience
 
 
 ## Table of Contents
