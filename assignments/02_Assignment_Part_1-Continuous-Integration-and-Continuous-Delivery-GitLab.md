@@ -101,6 +101,7 @@ yum install -y gitlab-runner
 
 Run `vagrant up`.
 
+ > Don't worry if you get this message `Warning: Remote connection disconnect.` repeatedly. It will take some time while the machine is fully started.
 
 ### Add the VM in Hosts
 
