@@ -57,7 +57,7 @@ Vagrant.configure("2") do |config|
     v.customize ["modifyvm", :id, "--cpuexecutioncap", "70"]
   end
 
-  config.vm.synced_folder "../shared/gitlab_jenkins_shared", "/mnt/rpms", owner: "vagrant", group: "vagrant"
+  config.vm.synced_folder "../../shared/gitlab_jenkins_shared", "/mnt/rpms", owner: "vagrant", group: "vagrant"
 
   config.vm.provision :shell, path: "bootstrap.sh"
 end
