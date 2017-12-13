@@ -162,7 +162,9 @@ Sign out.
 
 Check e-mail on VM (with vagrant) for credentials
 ```bash
-mutt
+$ vagrant ssh
+Last login: Thu Dec  7 10:00:00 2017 from 10.0.2.2
+[vagrant@gitlab ~]$ mutt
 ```
 
 Create a password, then login with `vagrant` user to the GitLab page
