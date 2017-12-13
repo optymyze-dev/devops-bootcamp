@@ -99,6 +99,22 @@ curl -L https://packages.gitlab.com/install/repositories/runner/gitlab-runner/sc
 
 # install gitlab-runner
 yum install -y gitlab-runner
+
+# add gitlab-runner to vagrant group so it can write to /mnt/rpms
+usermod -G vagrant gitlab-runner
+
+# install golang
+export GOLANG_VERSION="1.9.1"
+export GOTGZ="go${GOLANG_VERSION}.linux-amd64.tar.gz"
+export GOINSTALLPATH="/usr/local/go"
+rm -rf "${GOINSTALLPATH}"
+mkdir -p "${GOINSTALLPATH}"
+wget -q "https://storage.googleapis.com/golang/${GOTGZ}"
+tar -C "${GOINSTALLPATH}/.." -xzf "${GOTGZ}" 
+rm -f "${GOTGZ}"
+
+# install rpm build tools
+yum install -y rpmdevtools
 ```
 
 Run `vagrant up`.
@@ -153,7 +169,7 @@ Create a password, then login with `vagrant` user to the GitLab page
 
 #### Register a Runner
 
-Go to GitLab Page > Admin Area > Overview > Runners
+Go to GitLab Page > Admin Area > Overview > Runners. Check at the registration token. We'll need it below.
 
  > Docs: https://docs.gitlab.com/runner/register/index.html
 
@@ -179,10 +195,10 @@ shell
 Runner registered successfully. Feel free to start it, but if it's running already the config should be automatically reloaded!
 ```
 
-Refresh the Runners Page (http://gitlab.localhost/admin/runners).
+Refresh the Runners Page (http://gitlab.localhost/admin/runners). We should have a runner in the runners list.
 
 ### Create a Project
-Create a Project: `hello-world`
+Go to GitLab Page > Projects > Your projects > Create a Project: `hello-world`
 
 Add a README file from the link [README](http://gitlab.localhost/vagrant/hello-world/new/master?commit_message=Add+readme.md&file_name=README.md), on the project page.
 
@@ -195,6 +211,230 @@ This is a demo project.
 
 Commit changes.
 
-To be continued...
 
+### Class Excercise
+**We'll do the next steps in class.**
+
+Create a new file called `main.go` with this content:
+```go
+package main
+
+import (
+	"fmt"
+
+	"gitlab.localhost/vagrant/hello-world/calc"
+)
+
+var Version = "0.1"
+
+func main() {
+	fmt.Printf("Hello, World! Version %s\n", Version)
+	a, b := 1, 2
+	fmt.Printf("%d + %d = %d\n", a, b, calc.Sum(a, b))
+}
+```
+
+Create a new file called `calc/calc.go` with this content:
+```go
+package calc
+
+// Sum returns the sum of two integers
+func Sum(a, b int) int {
+	return a + b + 1
+}
+```
+
+Create a new file called `calc/calc_test.go` with this content:
+```go
+package calc
+
+import (
+	"testing"
+)
+
+// TestSum tests the Sum function
+func TestSum(t *testing.T) {
+	testCases := []struct {
+		a              int
+		b              int
+		expectedResult int
+	}{
+		{
+			a:              1,
+			b:              2,
+			expectedResult: 3,
+		},
+		{
+			a:              -1,
+			b:              -2,
+			expectedResult: -3,
+		},
+	}
+
+	for i, testCase := range testCases {
+		actualResult := Sum(testCase.a, testCase.b)
+		if testCase.expectedResult != actualResult {
+			t.Errorf("TestSum - test case %d\n expected result: %v\n   actual result: %v\n", i,
+				testCase.expectedResult, actualResult)
+		}
+	}
+}
+```
+
+Create a new file called `helloworld.spec` with this content:
+```spec
+%define installpath /home/vagrant/hello-world
+%define rpmname hello-world
+
+%define vagrant_user vagrant
+%define vagrant_group vagrant
+
+Name:           %{rpmname}
+Version:        0.1
+Release:        1%{?dist}
+Epoch:          1
+Summary:        %{rpmname} demo application
+Group:          System Environment/Test Tools
+Packager:       John Doe <vagrant@localhost>
+License:        MIT
+Distribution:   John Doe
+Vendor:         John Doe
+URL:            http://localhost
+BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
+Prefix:         %{installpath}
+
+%description
+%{rpmname} is a demo application used.
+
+%build
+export GOPATH=$(pwd .)
+export PATH="${PATH}:/usr/local/go/bin:${GOPATH}/bin"
+cd src/gitlab.localhost/vagrant/hello-world
+go install gitlab.localhost/vagrant/hello-world
+
+%install
+install -m 0750 -d $RPM_BUILD_ROOT%{installpath}
+cp bin/hello-world $RPM_BUILD_ROOT%{installpath}
+
+%clean
+rm -rf $RPM_BUILD_ROOT
+
+%pre
+## check for user
+%{_bindir}/getent group %{vagrant_group} >/dev/null || (printf "error: %s group not found.\n" %{vagrant_group}; exit 1)
+%{_bindir}/getent passwd %{vagrant_user} >/dev/null || (printf "error: %s user not found.\n" %{vagrant_user}; exit 1)
+
+%files
+%defattr(0754,%{vagrant_user},%{vagrant_group},0755)
+%{installpath}
+
+%doc
+%changelog
+```
+
+Create a new file called `.gitlab-ci.yml` with this content:
+```yaml
+stages:
+  - test
+  - build
+
+helloworld_test_job:
+  stage: test
+  script:
+    - rm -rf ./src
+    - shopt -s extglob
+
+    - export GOINSTALLPATH="/usr/local/go"
+    - export GOPATH="$(pwd .)/hello-world"
+    - rm -rf "${GOPATH}"
+    - mkdir -p "${GOPATH}"
+
+    - export PATH="${PATH}:${GOINSTALLPATH}/bin:${GOPATH}/bin"
+
+    - export HELLOWORLDSRCPATH="${GOPATH}/src/gitlab.localhost/vagrant/hello-world"
+    - mkdir -p "${HELLOWORLDSRCPATH}"
+
+    - cp -R !(helloworld.spec|README.md|hello-world|src) "${HELLOWORLDSRCPATH}"
+    - go get github.com/golang/lint/golint github.com/GeertJohan/fgt
+
+    - cd "${HELLOWORLDSRCPATH}"
+    - go vet $(go list ./... | grep -v /vendor/)
+    - exit_code=0; while read line; do fgt golint $line || exit_code=1; done < <(find * -type f -name '*.go' -not -wholename 'vendor/*' -not -wholename 'Godeps/*'); if [ $exit_code -ne 0 ]; then exit $exit_code; fi
+    - exit_code=0; while read line; do go test -race "${line}" || exit_code=1; done < <(find * -type f -name '*_test.go' -not -wholename 'vendor/*' -not -wholename 'Godeps/*' | sed -r 's#^(.*)/[^/]+$#gitlab.localhost/vagrant/hello-world/\1#g' | sort | uniq); exit $exit_code
+
+helloworld_el7_build_job:
+  only:
+    - master@vagrant/hello-world
+  stage: build
+  script:
+    - sed s/0.1/$CI_BUILD_REF_NAME/ -i helloworld.spec
+    - sed "s/\"0.1\"/\"$CI_BUILD_REF_NAME\"/" -i main.go
+    - rm -rf ~/rpmbuild/
+    - rpmdev-setuptree
+    - shopt -s extglob
+    - mkdir -p ~/rpmbuild/BUILD/src/gitlab.localhost/vagrant/hello-world
+    - cp -R !(helloworld.spec|README.md|go) ~/rpmbuild/BUILD/src/gitlab.localhost/vagrant/hello-world
+    - rpmbuild -bb helloworld.spec
+    - mv ~/rpmbuild/RPMS/x86_64/*.rpm /mnt/rpms
+  tags:
+    - el7
+  only:
+    - /^[0-9]+\.[0-9]+$/
+  except:
+    - branches
+```
+
+The build should run and fail.
+
+Edit `main.go`:
+```go
+package main
+
+import (
+	"fmt"
+
+	"gitlab.localhost/vagrant/hello-world/calc"
+)
+
+// Version - the version of the application
+var Version = "0.1"
+
+func main() {
+	fmt.Printf("Hello, World! Version %s\n", Version)
+	a, b := 1, 2
+	fmt.Printf("%d + %d = %d\n", a, b, calc.Sum(a, b))
+}
+```
+
+The build should run and fail again, at some tests.
+
+Edit `calc/calc.go`:
+```go
+package calc
+
+// Sum returns the sum of two integers
+func Sum(a, b int) int {
+	return a + b
+}
+```
+
+Check the build. SUCCESS!
+
+
+Create a tag `0.2`.
+
+
+Check build.
+
+
+On VM, as vagrant, run the following:
+```bash
+[vagrant@gitlab ~]$ sudo yum install -y /mnt/rpms/hello-world-0.2-1.el7.centos.x86_64.rpm
+...
+[vagrant@gitlab ~]$ hello-world/hello-world 
+Hello, World! Version 0.2
+1 + 2 = 3	
+[vagrant@gitlab ~]$ sudo yum remove -y hello-world
+[vagrant@gitlab ~]$ ls
+```
 
