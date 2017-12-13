@@ -9,7 +9,7 @@
     * [Create a Project](#create-a-project)
 
 ## GitLab
-GitLab is a repo manager with built-in CI and CD features. In this chapter we'll be setting up our on-premise GitLab server.
+GitLab is a repo manager with built-in CI and CD features. In this chapter we'll be setting up our on-premise GitLab server, create a repository and build some code.
 
 ### About
 "GitLab is a web-based Git repository manager with wiki and issue tracking features, using an open source license, developed by GitLab Inc." - https://en.wikipedia.org/wiki/GitLab
@@ -23,9 +23,21 @@ GitLab can be installed on-premise or can be used as a service (similar to GitHu
 ### Vagrant Setup
  > Prerequisites: you should already have a Vagrant Base Box created as described in [creating-virtual-machines-using-vagrant.md](../extra/creating-virtual-machines-using-vagrant.md)).
 
-Create a new VM dir: `centos-gitlab`
+Create a new VM dir: `centos-gitlab`. Check the directory structure below.
 
-Inside it...
+Create a new directory outside the VM dir that will be used as a shared folder between the host and VMs (e.g. `shared/gitlab_jenkins_shared`). Check the directory structure below.
+
+Example of the directory structure (!!! make sure your VMs dir and shared dir are in the same parent dir, otherwise you must change the Vagrantfile file's synced_folder):
+```bash
+...
+├── shared
+│   └── gitlab_jenkins_shared
+└── VMs
+    ├── centos-gitlab
+...
+```
+
+Inside `centos-gitlab`...
 
 Create a `Vagrantfile`:
 ```bash
@@ -44,6 +56,8 @@ Vagrant.configure("2") do |config|
     v.cpus = 2
     v.customize ["modifyvm", :id, "--cpuexecutioncap", "70"]
   end
+
+  config.vm.synced_folder "../shared/gitlab_jenkins_shared", "/mnt/rpms", owner: "vagrant", group: "vagrant"
 
   config.vm.provision :shell, path: "bootstrap.sh"
 end
@@ -159,8 +173,7 @@ Whether to lock the Runner to current project [true/false]:
 Registering runner... succeeded                     runner=3ZRZzRF5
 Please enter the executor: docker, docker+machine, shell, ssh, virtualbox, docker-ssh+machine, kubernetes, docker-ssh, parallels:
 shell
-Runner registered successfully. Feel free to start it, but if it's running already the config should be automatically reloaded! 
-
+Runner registered successfully. Feel free to start it, but if it's running already the config should be automatically reloaded!
 ```
 
 Refresh the Runners Page (http://gitlab.localhost/admin/runners).
@@ -178,7 +191,6 @@ This is a demo project.
 ```
 
 Commit changes.
-
 
 To be continued...
 
