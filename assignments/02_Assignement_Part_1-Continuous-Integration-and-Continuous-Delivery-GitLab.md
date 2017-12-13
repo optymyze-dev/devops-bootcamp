@@ -1,5 +1,4 @@
-# Continuous Integration, Continuous Delivery and Continuous Deployment
-
+# Continuous Integration and Continuous Delivery with GitLab
 
 ## Table of Contents
 * [GitLab](#gitlab)
@@ -8,8 +7,6 @@
     * [Add the VM in Hosts](#add-the-vm-in-hosts)
     * [Web Setup](#web-setup)
     * [Create a Project](#create-a-project)
-* [Jenkins](#jenkins)
-    * [About](#about)
 
 ## GitLab
 GitLab is a repo manager with built-in CI and CD features. In this chapter we'll be setting up our on-premise GitLab server.
@@ -24,6 +21,8 @@ Website: https://about.gitlab.com/
 GitLab can be installed on-premise or can be used as a service (similar to GitHub) at https://gitlab.com/users/sign_in.
 
 ### Vagrant Setup
+ > Prerequisites: you should already have a Vagrant Base Box created as described in [creating-virtual-machines-using-vagrant.md](../extra/creating-virtual-machines-using-vagrant.md)).
+
 Create a new VM dir: `centos-gitlab`
 
 Inside it...
@@ -171,7 +170,7 @@ Create a Project: `hello-world`
 
 Add a README file from the link [README](http://gitlab.localhost/vagrant/hello-world/new/master?commit_message=Add+readme.md&file_name=README.md), on the project page.
 
-Fill the pagee with this content:
+Fill the page with this content:
 ```md
 # Hello World
 
@@ -184,10 +183,3 @@ Commit changes.
 To be continued...
 
 
-## Jenkins
-GitLab is a repo manager with built-in CI and CD features. In this chapter we'll be setting up our on-premise GitLab server.
-
-### About
-"Jenkins is a self-contained, open source automation server which can be used to automate all sorts of tasks related to building, testing, and delivering or deploying software." - https://jenkins.io/doc/
-
-Website: https://jenkins.io/
