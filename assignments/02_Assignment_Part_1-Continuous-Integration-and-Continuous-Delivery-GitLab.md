@@ -427,7 +427,7 @@ Check the build. SUCCESS!
 Create a tag `0.2`.
 
 
-Check build.
+Check the build.
 
 
 On VM, as vagrant, run the following:
