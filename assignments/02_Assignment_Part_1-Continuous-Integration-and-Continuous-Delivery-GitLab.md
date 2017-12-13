@@ -7,6 +7,7 @@
     * [Add the VM in Hosts](#add-the-vm-in-hosts)
     * [Web Setup](#web-setup)
     * [Create a Project](#create-a-project)
+    * [Class Excercise](#class-excercise)
 
 ## GitLab
 GitLab is a repo manager with built-in CI and CD features. In this chapter we'll be setting up our on-premise GitLab server, create a repository and build some code.
