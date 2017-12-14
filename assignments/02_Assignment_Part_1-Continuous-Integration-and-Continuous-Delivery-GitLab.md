@@ -441,3 +441,6 @@ Hello, World! Version 0.2
 [vagrant@gitlab ~]$ ls
 ```
 
+This last part (without the removal of the package), if automated, would simulate the continuous delivery in the most basic way possible.
+
+ > Optional Homework: define a `deliver` stage in `.gitlab-ci.yml` for installing and running the RPM on the GitLab VM. Test that the last line of the output is `1 + 2 = 3`.
