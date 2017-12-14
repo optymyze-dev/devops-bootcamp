@@ -52,7 +52,7 @@ Vagrant.configure("2") do |config|
   config.vm.host_name = "gitlab.localhost"
   config.vm.define "gitlab.localhost"
 
-  config.vm.network :private_network, ip: "192.168.0.200", bridge: "enp0s4"
+  config.vm.network :private_network, ip: "192.169.0.200", bridge: "enp0s4"
 
   config.vm.provider "virtualbox" do |v|
     v.memory = 4096
@@ -127,14 +127,14 @@ Run `vagrant up`.
 GNU/Linux
 ```bash
 sudo vim /etc/hosts # add the following line
-192.168.0.200 gitlab.localhost
+192.169.0.200 gitlab.localhost
 ```
 
 
 Windows
 ```
 # open as Administrator c:\Windows\system32\dirvers\etc\hosts and add the following line
-192.168.0.200 gitlab.localhost
+192.169.0.200 gitlab.localhost
 ```
 
 ### Web Setup
