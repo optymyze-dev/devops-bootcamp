@@ -138,7 +138,7 @@ Windows
 ```
 
 ### Web Setup
-Go to http://gitlab.localhost. This may take a while. Add a root password, then connect as `root` with the password created.
+Go to http://gitlab.localhost. This may take a while. You will be asked to change your password. That is the `root` user password. Add a root password, then connect as `root` with the password created.
 
 #### Create an Admin User
 
