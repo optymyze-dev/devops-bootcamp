@@ -24,7 +24,7 @@ GitLab can be installed on-premise or can be used as a service (similar to GitHu
 ### Vagrant Setup
  > Prerequisites:
  > - you should already have a Vagrant Base Box created as described in [creating-virtual-machines-using-vagrant.md](../extra/creating-virtual-machines-using-vagrant.md));
- > - minimum requirements: 4GiB of free RAM, dual core CPU, ~30GiB of disk space.
+ > - minimum requirements: 4GiB of free RAM, two virtual CPU cores, ~5GiB of disk space.
 
 Create a new VM dir: `centos-gitlab`. Check the directory structure below.
 
