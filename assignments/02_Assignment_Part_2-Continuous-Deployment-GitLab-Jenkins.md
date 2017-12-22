@@ -9,7 +9,7 @@ For this part, you should have already done [the second assignment - part 1](02_
     * [Add the Jenkins Server VM in Hosts](#add-the-jenkins-server-vm-in-hosts)
     * [Web Setup](#web-setup)
     * [Run a Pipeline](#run-a-pipeline)
-* [From Gitlab to Jenkins]
+* [From Gitlab to Jenkins](#from-gitlab-to-jenkins)
 
 ## Jenkins
 Jenkins is a tool is mostly used for creating and running complex pipelines which speed up the development process from testing the code to publishing a release package to production environments. In this chapter we'll be setting up our on-premise Jenkins server and work out how to combine GitLab and Jenkins to create a Contiuous Deployment flow.
