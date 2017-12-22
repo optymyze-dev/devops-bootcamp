@@ -23,8 +23,8 @@ Website: https://jenkins.io/
 ### Vagrant Setup
  > Prerequisites:
  > - you should already have a Vagrant Base Box created as described in [creating-virtual-machines-using-vagrant.md](../extra/creating-virtual-machines-using-vagrant.md));
- > - minimum requirements: 1GiB of free RAM, two virtual CPU cores, ~10GiB of disk space.
- 
+ > - minimum requirements: 1GiB of free RAM, two virtual CPU cores, ~5GiB of disk space.
+ >
  > Note that you will need the additional resources from the first part of the assignment in order to complete the whole part 2.
 
 Create a new VM dir: `centos-jenkins`. Check the directory structure below.
