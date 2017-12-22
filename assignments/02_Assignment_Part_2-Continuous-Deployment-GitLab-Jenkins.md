@@ -23,7 +23,8 @@ Website: https://jenkins.io/
 ### Vagrant Setup
  > Prerequisites:
  > - you should already have a Vagrant Base Box created as described in [creating-virtual-machines-using-vagrant.md](../extra/creating-virtual-machines-using-vagrant.md));
- > - minimum requirements: 1GiB of free RAM, dual core CPU, ~10GiB of disk space.
+ > - minimum requirements: 1GiB of free RAM, two virtual CPU cores, ~10GiB of disk space.
+ > Note that you will need the additional resources from the first part of the assignment in order to complete the whole part 2.
 
 Create a new VM dir: `centos-jenkins`. Check the directory structure below.
 
@@ -284,7 +285,7 @@ Get the crumb for the user and machine used to trigger the Jenkins' Job:
 
 
 Set up a deploy stage on GitLab, to trigger the Jenkins Deploy job:
-- In GitLab, in hello-world repo, edit the .gitlab-ci.yml and add the deploy stage. The final result should be like this:
+- In GitLab, in hello-world repo, edit the .gitlab-ci.yml and add the deploy stage. The final result should be like this (if you made the optional homework from part 1, just copy the deploy part to your yaml file):
 ```yaml
 stages:
   - test
