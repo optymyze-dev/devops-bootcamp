@@ -43,7 +43,7 @@ Scheduling
 * Why is deployment a scheduling problem
 * Kubernetes
 
-The Service Mesh patterns
+The Service Mesh patterns - Cristi Falcaş
 * Why use the service mesh pattern
 * The Edge proxy
 * The Service Mesh
