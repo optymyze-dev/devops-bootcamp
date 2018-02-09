@@ -1,4 +1,4 @@
-# Operating systems as the foundation of Devops stack
+Scheduling# Operating systems as the foundation of Devops stack
 This lesson tries to explore the convergence between operating systems and the devops movement.
 
 ## Table of Contents
