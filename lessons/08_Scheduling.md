@@ -1817,4 +1817,4 @@ For Kubernetes-native applications, Kubernetes offers a simple Endpoints API tha
 # Resources
 * Large-scale cluster management at Google with Borg - https://research.google.com/pubs/pub43438.html
 * Apache Hadoop YARN: Yet Another Resource Negotiator - https://54e57bc8-a-62cb3a1a-s-sites.googlegroups.com/site/2013socc/home/program/a5-vavilapalli.pdf?attachauth=ANoY7cqMTFYK5q_YIaY8_NQe2QKXqYukFk0sJVmfjVDMzRWtZk1qPKL7KDGxWErVD2gVPa1KvbMfuVy-vH8r5-srCnIbQUWj1vaUY4IKizAcuKG5sM9lpRXlR8yWldsGmZTsm1MN3GXVRfgRBVMXzfw8AtyUJ18n-xW_TDaT4r2ntxZ1s7TW4yEugNtJqYH2dJpqtapqk5JnGXePAB-JCikcnpdpo3v8_T3fqxsIKC1cbIruSGEt04U%3D&attredirects=0
-*Efficient Datacenter Resource Utilization Through Cloud Resource Overcommitment http://web.engr.orst.edu/~hamdaoui/papers/2015/mehiar-infocom-15.pdf
+* Efficient Datacenter Resource Utilization Through Cloud Resource Overcommitment http://web.engr.orst.edu/~hamdaoui/papers/2015/mehiar-infocom-15.pdf
