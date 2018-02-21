@@ -1,11 +1,22 @@
 # Assignment 3 - Kubernetes with Minikube
 
 
-## Prerequisites: 
+## Table of Contents
+* [Prerequisites](#prerequisites)
+* [Docs](#docs)
+* [Install](#install)
+* [Exercises](#exercises)
+    * [Exercise 1: hello minikube test](#exercise-1-hello-minikube-test)
+    * [Exercise 2: configure a deployment and a service from scratch](#exercise-2-configure-a-deployment-and-a-service-from-scratch)
+    * [Exercise 3: HTTP healthchecks using liveness](#exercise-3-http-healthchecks-using-liveness)
+    * [Exercise 4: namespaces, quotas, limits](#exercise-4-namespaces-quotas-limits)
+
+
+## Prerequisites
 - VirtualBox
 - ~20 GiB Disk Space
 
-## Docs:
+## Docs
 - https://github.com/kubernetes/minikube/blob/master/README.md
 - https://kubernetes.io/docs/getting-started-guides/minikube/
 - https://kubernetes.io/docs/concepts/
