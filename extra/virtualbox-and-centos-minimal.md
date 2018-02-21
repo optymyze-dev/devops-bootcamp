@@ -312,7 +312,7 @@ Windows: just run the installer :)
     $ sudo su -
     ```
 
-- For ease of use, make sudo for sudoers run without asking for password. In the sudoers file, you should find the following lines; comment the first configuration line using # and uncomment the last line, so everything looks like below
+- For ease of use, make sudo for sudoers run without asking for password. In the sudoers file, you should find the following lines; comment the first configuration line (`%wheel  ALL=(ALL)       ALL`) using # and uncomment the last line (`# %wheel        ALL=(ALL)       NOPASSWD: ALL`), so everything looks like below
     ```bash
     $ vim /etc/sudoers
     ## Allows people in group wheel to run all commands
