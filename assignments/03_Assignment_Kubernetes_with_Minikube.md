@@ -88,7 +88,7 @@ kubectl get deployment
 
 ### Exercise 2: configure a deployment and a service from scratch
 ```
-# create a directory for this excercise
+# create a directory for this exercise
 mkdir ex2
 cd ex2
 
@@ -223,7 +223,7 @@ kubectl delete deployment test-webserver-deployment
 ### Exercise 3: HTTP healthchecks using liveness
 ```
 cd ..
-# create a directory for this excercise
+# create a directory for this exercise
 mkdir ex3
 cd ex3
 
@@ -235,7 +235,6 @@ apiVersion: v1
 kind: Pod
 metadata:
   labels:
-    test: liveness
   name: liveness-http
 spec:
   containers:
@@ -276,14 +275,14 @@ kubectl delete pod liveness-http
 ### Exercise 4: namespaces, quotas, limits
 ```
 cd ..
-# create a directory for this excercise
+# create a directory for this exercise
 mkdir ex4
 cd ex4
 
 # check existing namespaces
 kubectl get namespaces
 
-# create a namespace resource file - we can use YAML or JSON for the config files. In this excercise we'll use JSONs.
+# create a namespace resource file - we can use YAML or JSON for the config files. In this exercise we'll use JSONs.
 vim namespace-dev-with-quotas.json
 
 {

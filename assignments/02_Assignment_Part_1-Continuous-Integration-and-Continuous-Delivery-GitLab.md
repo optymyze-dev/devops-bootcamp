@@ -7,7 +7,7 @@
     * [Add the VM in Hosts](#add-the-vm-in-hosts)
     * [Web Setup](#web-setup)
     * [Create a Project](#create-a-project)
-    * [Class Excercise](#class-excercise)
+    * [Class Exercise](#class-exercise)
 
 ## GitLab
 GitLab is a repo manager with built-in CI and CD features. In this chapter we'll be setting up our on-premise GitLab server, create a repository and build some code.
@@ -215,7 +215,7 @@ This is a demo project.
 Commit changes.
 
 
-### Class Excercise
+### Class Exercise
 **We'll do the next steps in class.**
 
 Create a new file called `main.go` with this content:
