@@ -2,6 +2,13 @@
 
 ## What is observability
 
+The observability is the quality of a system that offers information about its internals.
+
+Why we need observability for our systems? We want to prevent failures as much as possible. 
+It means the systems offer us a mechanism to observe its behavior. 
+
+You can't monitor systems that don't offer observability (that are not 'monitorable'). Observability is a quality of systems but monitoring is our action. 
+
 In general, we tend to measure three levels:
 
 	* network
@@ -9,12 +16,6 @@ In general, we tend to measure three levels:
 	* application
 
 We do that obtaining and processing specific values. Actually, we evaluate the internal of each level based on these output	values.
-
-Why we need observability for our systems? We want to prevent failures as much as possible. 
-It means the systems offer us a mechanism to observe its behavior. 
-
-You can't monitor systems that don't offer observability (that are not 'monitorable'). Observability is a quality of systems but monitoring is our action. 
-
 
 	
 ## Monitoring
