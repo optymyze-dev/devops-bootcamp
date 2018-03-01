@@ -34,19 +34,19 @@ The pull way means the monitoring system will fetch metrics and the push way mea
 
 ### Riemann
 
-Riemann is a monitoring server that uses the push way. Each monitored system should push its metrics to the server. 
+[Riemann](http://riemann.io/concepts.html) is a monitoring server that uses the push way. Each monitored system should push its metrics to the server. 
 The Riemann server doesn't know about other systems. It just receives metrics and process them based on some rules. It decides to send alerts based on its processing.
 Every system that wants to be monitored has to know about the Riemann server and send metrics in the right format (in the Riemann way).
 
 ### Prometheus
 
-Prometheus works the opposite way than Riemann. It uses the pull way. It is configured to know about the systems that have to be monitored and periodically will fetch metrics from them.
+[Prometheus](https://prometheus.io/docs/introduction/overview/) works the opposite way than Riemann. It uses the pull way. It is configured to know about the systems that have to be monitored and periodically will fetch metrics from them.
 Obviously, the monitored systems should be up and available but this is not happening all the time. There are short time tasks (crons) that do their job then stop. 
 For this case Prometheus provides a Push Gateway server that is live all the time. In this scenario, the cron job will do its job and build its metrics. It will push its metrics before stop.
 
 ## Logging
 
-Logging is the action of saving time series information about what a system do.
+Logging is the action of saving time series information about what systems do.
 
 The developers decide what information should be logged.
 Logs can contain:
@@ -58,16 +58,48 @@ Logs can contain:
 
 ### The importance of logging
 
-Logs are important for sysadmins and developers. Sysdmins check logs to make sure the system is working as expected. Sometimes we cannot observe malfunction of a process but the process can log its status.
+Logs are a critical part of any system. They give you an image about what happens in your system. 
 
-Developers write code and they need to find problems in their applications during and after development. Developer has not access on the client machine but can receive the logs of the application and determine its behavior in certain situations.
+Logs are important for sysadmins and developers. 
+Sysdmins check logs to make sure the system is working as expected. Sometimes we cannot observe malfunction of a process but the process can log its status.
+
+Developers write code and they need to find problems in their applications during and after development. Developer has no access on the client machine but can receive (see centralization of logs) the logs of the application and determine its behavior in certain situations.
 Usually, applications have a log level that can be set. In debug level the application can log very detailed information. 
 
-### Centralization of logs (fluentd   elastic-search   ok-log)
+The operating system and application generates log files on local disks. In enterprise applications, when we use many systems, it is difficult nu analyze and access each log file in order to find some information. 
+The solution is to use some tools that can aggregate and centralize the logs.
 
 
+### Centralization of logs (fluentd   elasticsearch   ok-log)
 
-### Analyzing logs (kebana, ok-log)
+The idea of centralization of logs needs to address some problems:
+
+	* logs collection and aggregation
+	* logs transport
+	* logs storage
+	* logs analysis (and alerting)
+
+#### Collection	
+
+Logs collection in a central location can be realized using a replication strategy. You can setup a cron job that periodically will rsync distributed log files to a central location. 
+Here, we can analyze the logs. The accuracy depends on how fast this replication strategy works.
+
+
+#### Transport 
+
+Centralization of logs requires to transport the logs from the place they are generated to the central location. There are tools that generate logs and know how to send the logs to a central location.
+Also, there are applications that generates logs in files and we need other tools that transport them to a central location. These tools are designed to transport large volume of logs.
+
+
+#### Storage
+	
+The logs central location need to be able to store a large volume that can grow fast in time. The solution to this problem depends on what we want to do with the logs. 
+If we want to store the logs for long time then we choose a solution to archive them but not immediate analysis. Here, the volume size is more important than the access time.
+If we want immediate analysis of the logs we need a solution that offer real-time access and batch analysis. 	
+	
+#### Analysis (kebana, ok-log)
+
+
 
 
 
