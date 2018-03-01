@@ -112,6 +112,15 @@ There are tools that can be configured to alert or notify a group of persons for
 
 ### What is a trace
 
+Tracing is used to measure the internals of an application. For example, when an user makes a request then an entire stack of code is executed in order to create the response.
+We can instrument the code and collect metrics about the execution of each level. At the end, these metrics are pushed to a tracing server.
+
+Ideally, the tracing should not add complexity to the code and some times the instrumentation code is included in libraries, therefore it is transparent to the developer.
+
 ### The importance of tracing
+
+An application supports several updates/upgrades over the time. We need to know if a code change cause changes in execution time. If we traced some data before upgrade we can compare it with new traced data.
+
+Also, we want to know how our system responds when multiple users concurrently access our system. We can trace data and gradually increase the load of the application. We can see how our system responds in this situation. 
 
 ### Examples of tracing in distributed applications
