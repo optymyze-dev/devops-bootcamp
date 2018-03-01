@@ -32,13 +32,13 @@ There are two ways to collect metrics, the pull way and the push way.
 The pull way means the monitoring system will fetch metrics and the push way means the monitored systems will push their metrics to the monitoring system.
 
 
-### Riemann
+#### Riemann
 
 [Riemann](http://riemann.io/concepts.html) is a monitoring server that uses the push way. Each monitored system should push its metrics to the server. 
 The Riemann server doesn't know about other systems. It just receives metrics and process them based on some rules. It decides to send alerts based on its processing.
 Every system that wants to be monitored has to know about the Riemann server and send metrics in the right format (in the Riemann way).
 
-### Prometheus
+#### Prometheus
 
 [Prometheus](https://prometheus.io/docs/introduction/overview/) works the opposite way than Riemann. It uses the pull way. It is configured to know about the systems that have to be monitored and periodically will fetch metrics from them.
 Obviously, the monitored systems should be up and available but this is not happening all the time. There are short time tasks (crons) that do their job then stop. 
@@ -96,17 +96,22 @@ Also, there are applications that generates logs in files and we need other tool
 The logs central location need to be able to store a large volume that can grow fast in time. The solution to this problem depends on what we want to do with the logs. 
 If we want to store the logs for long time then we choose a solution to archive them but not immediate analysis. Here, the volume size is more important than the access time.
 If we want immediate analysis of the logs we need a solution that offer real-time access and batch analysis. 	
+
+For example, storing log data in ElasticSearch allow us to work with row data more effectively. ElasticSearch analyzes large data in batch pattern.
 	
-#### Analysis (kebana, ok-log)
+#### Analysis and Alerting
 
+The main purpose of centralization of logs is their analysis. There are tools that process log data periodically and store results that can be query later.
+Further, some front-end application (Kibana) can be used to display the results.
 
-
+Some important log data are errors. Errors mean something went wrong in your system. You need to know as soon as possible when an error occurs.
+There are tools that can be configured to alert or notify a group of persons for certain errors.
 
 
 ## Tracing (zipkin, open tracing, jaeger) - nu folosim inca
 
-### The importance of tracing
-
 ### What is a trace
+
+### The importance of tracing
 
 ### Examples of tracing in distributed applications
