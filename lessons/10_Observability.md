@@ -70,7 +70,7 @@ The operating system and application generates log files on local disks. In ente
 The solution is to use some tools that can aggregate and centralize the logs.
 
 
-### Centralization of logs (fluentd   elasticsearch   ok-log)
+### Centralization of logs
 
 The idea of centralization of logs needs to address some problems:
 
@@ -107,8 +107,13 @@ Further, some front-end application (Kibana) can be used to display the results.
 Some important log data are errors. Errors mean something went wrong in your system. You need to know as soon as possible when an error occurs.
 There are tools that can be configured to alert or notify a group of persons for certain errors.
 
+#### Tools
 
-## Tracing (zipkin, open tracing, jaeger) - nu folosim inca
+	* [elasticsearch](https://www.elastic.co/)
+	* [fluentd](https://www.fluentd.org/)
+	* [ok-log](https://github.com/oklog/oklog)
+
+## Tracing
 
 ### What is a trace
 
@@ -123,4 +128,10 @@ An application supports several updates/upgrades over the time. We need to know 
 
 Also, we want to know how our system responds when multiple users concurrently access our system. We can trace data and gradually increase the load of the application. We can see how our system responds in this situation. 
 
-### Examples of tracing in distributed applications
+### Tools
+
+	* [zipkin](https://zipkin.io/)
+	* [jaeger](https://jaeger.readthedocs.io/en/latest/)
+	* [opentracing](http://opentracing.io/) 
+
+
