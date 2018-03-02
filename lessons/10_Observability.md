@@ -11,9 +11,9 @@ You can't monitor systems that don't offer observability (that are not 'monitora
 
 In general, we tend to measure three levels:
 
-	* network
-	* machine
-	* application
+* network
+* machine
+* application
 
 We do that obtaining and processing specific values. Actually, we evaluate the internal of each level based on these output	values.
 
@@ -51,10 +51,10 @@ Logging is the action of saving time series information about what systems do.
 The developers decide what information should be logged.
 Logs can contain:
 
-	* tracing information
-	* debugging information
-	* errors
-	* warnings	
+* tracing information
+* debugging information
+* errors
+* warnings	
 
 ### The importance of logging
 
@@ -74,10 +74,10 @@ The solution is to use some tools that can aggregate and centralize the logs.
 
 The idea of centralization of logs needs to address some problems:
 
-	* logs collection and aggregation
-	* logs transport
-	* logs storage
-	* logs analysis (and alerting)
+* logs collection and aggregation
+* logs transport
+* logs storage
+* logs analysis (and alerting)
 
 #### Collection	
 
