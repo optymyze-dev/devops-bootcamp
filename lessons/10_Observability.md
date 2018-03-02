@@ -109,9 +109,9 @@ There are tools that can be configured to alert or notify a group of persons for
 
 #### Tools
 
-	* [elasticsearch](https://www.elastic.co/)
-	* [fluentd](https://www.fluentd.org/)
-	* [ok-log](https://github.com/oklog/oklog)
+	*  [elasticsearch](https://www.elastic.co/)
+	*  [fluentd](https://www.fluentd.org/)
+	*  [ok-log](https://github.com/oklog/oklog)
 
 ## Tracing
 
