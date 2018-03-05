@@ -14,7 +14,8 @@
 
 ## Prerequisites
 - VirtualBox
-- ~20 GiB Disk Space
+- ~2 GiB RAM free
+- ~5 GiB Disk Space
 
 ## Docs
 - https://github.com/kubernetes/minikube/blob/master/README.md
