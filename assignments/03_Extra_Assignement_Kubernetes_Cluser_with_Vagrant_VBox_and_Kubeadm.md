@@ -37,7 +37,7 @@ Create a directory structure similar to this:
 In `centos-k8s`, create the following files...
 
 `Vagrantfile`
-```
+```ruby
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
@@ -80,7 +80,7 @@ end
 ```
 
 `k8s_bootstrap_shared.sh`
-```
+```bash
 #!/bin/bash
 
 # Disable Swap. You MUST disable swap in order for the kubelet to work properly
@@ -127,7 +127,7 @@ systemctl stop iptables.service || exit 0
 
 
 `k8s_bootstrap_master.sh`
-```
+```bash
 #!/bin/bash
 
 token_path="/mnt/shared/k8s_token"
@@ -165,7 +165,7 @@ kubectl taint nodes --all node-role.kubernetes.io/master-
 
 
 `k8s_bootstrap_node1.sh`
-```
+```bash
 #!/bin/bash
 
 token_path="/mnt/shared/k8s_token"
@@ -194,7 +194,7 @@ Finally, you should end up with this:
 ```
 
 Now that we have everything in place, we can start the cluster and test it all works well.
-```
+```bash
 # install vagrant virtual box guest addtitions plugin
 vagrant plugin install vagrant-vbguest
 
