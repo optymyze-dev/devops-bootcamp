@@ -66,7 +66,7 @@ Putting it all together
 * Building robust systems
 
 # Comunication
-Slack room -> opty-devops-bootcamp
+[![Gitter](https://badges.gitter.im/optymyze-dev/devops-bootcamp.svg)](https://gitter.im/optymyze-dev/devops-bootcamp?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 # Lessons
 See the lessons folder
