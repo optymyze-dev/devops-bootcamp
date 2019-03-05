@@ -24,7 +24,7 @@ Probably the most known specialized CI/CD systems are Jenkins, Travis (used a lo
 For experiencing the CI/CD/CD processes, we'll be working with GitLab and Jenkins.
 
 ### GitLab
-Check [the second assignment - part 1](../assingements/02_Assignment_Part_1-Continuous-Integration-and-Continuous-Delivery-GitLab.md).
+Check [the second assignment - part 1](../assignments/02_Assignment_Part_1-Continuous-Integration-and-Continuous-Delivery-GitLab.md).
 
 ### Jenkins
-Check [the second assignment - part 2](../assingements/02_Assignment_Part_2-Continuous-Deployment-GitLab-Jenkins.md).
+Check [the second assignment - part 2](../assignments/02_Assignment_Part_2-Continuous-Deployment-GitLab-Jenkins.md).
